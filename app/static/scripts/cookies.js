@@ -4,6 +4,9 @@ const acceptedBanner = document.querySelector('.js-cookies-accepted')
 const rejectedBanner = document.querySelector('.js-cookies-rejected')
 const questionBanner = document.querySelector('.js-question-banner')
 const cookieBanner = document.querySelector('.js-cookies-banner')
+const cookieContainer = document.querySelector('.js-cookies-container')
+
+cookieContainer.style.display = 'block'
 
 function showBanner (banner) {
   questionBanner.setAttribute('hidden', 'hidden')
