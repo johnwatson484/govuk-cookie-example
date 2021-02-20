@@ -15,7 +15,8 @@ module.exports = [{
     validate: {
       payload: joi.object({
         analytics: joi.boolean(),
-        functional: joi.boolean()
+        functional: joi.boolean(),
+        async: joi.boolean().default(false)
       })
     },
     handler: (request, h) => {
@@ -23,8 +24,13 @@ module.exports = [{
       cookiesPolicy.analytics = request.payload.analytics
       cookiesPolicy.functional = request.payload.functional
       cookiesPolicy.confirmed = true
+
+      h.state('cookies_policy', cookiesPolicy, config)
+
+      if (request.payload.async) {
+        return h.response()
+      }
       return h.redirect('cookies/?updated=true')
-        .state('cookies_policy', cookiesPolicy, config)
     }
   }
 }]

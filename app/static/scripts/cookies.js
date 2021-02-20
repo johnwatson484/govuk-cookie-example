@@ -20,11 +20,13 @@ function showBanner (banner) {
 acceptButton.addEventListener('click', function (event) {
   showBanner(acceptedBanner)
   event.preventDefault()
+  submitPreference(true)
 })
 
 rejectButton.addEventListener('click', function (event) {
   showBanner(rejectedBanner)
   event.preventDefault()
+  submitPreference(false)
 })
 
 acceptedBanner.querySelector('.js-hide').addEventListener('click', function () {
@@ -34,3 +36,14 @@ acceptedBanner.querySelector('.js-hide').addEventListener('click', function () {
 rejectedBanner.querySelector('.js-hide').addEventListener('click', function () {
   cookieBanner.setAttribute('hidden', 'hidden')
 })
+
+function submitPreference (accepted) {
+  const xhr = new XMLHttpRequest()
+  xhr.open('POST', '/cookies', true)
+  xhr.setRequestHeader('Content-Type', 'application/json')
+  xhr.send(JSON.stringify({
+    analytics: accepted,
+    functional: accepted,
+    async: true
+  }))
+}
