@@ -20,6 +20,7 @@
     "@hapi/hapi": "^20.0.3",
     "@hapi/inert": "^6.0.3",
     "@hapi/vision": "^6.0.1",
+    "applicationinsights": "^1.8.10",
     "blipp": "^4.0.2",
     "govuk-frontend": "^3.11.0",
     "joi": "^17.3.0",
