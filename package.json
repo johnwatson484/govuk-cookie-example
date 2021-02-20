@@ -1,9 +1,11 @@
 {
-  "name": "hapi-template",
+  "name": "govuk-cookie-example",
   "version": "1.0.0",
   "description": "",
   "main": "app/index.js",
   "scripts": {
+    "build": "npm run build:css",
+    "build:css": "sass --load-path=./ app/static/stylesheets",
     "start": "node app/index.js",
     "start:watch": "nodemon --inspect=0.0.0.0 --ext css,js,njk --legacy-watch app/index.js"
   },
@@ -17,13 +19,16 @@
     "@hapi/good-squeeze": "^6.0.0",
     "@hapi/hapi": "^20.0.3",
     "@hapi/inert": "^6.0.3",
-    "joi": "^17.3.0",
     "@hapi/vision": "^6.0.1",
     "blipp": "^4.0.2",
+    "govuk-frontend": "^3.11.0",
+    "joi": "^17.3.0",
     "nunjucks": "^3.2.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.6",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.32.8",
     "standard": "^16.0.3"
   }
 }

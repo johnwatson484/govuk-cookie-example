@@ -1,5 +1,5 @@
-# Hapi Template
-Quick start new Node.js project using Hapi.js.
+# GOV.UK cookie example
+Example of GOV.UK cookie patterns using Node.js and Hapi.js
 
 ## Prerequisites
 

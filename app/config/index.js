@@ -5,14 +5,18 @@ const envs = ['development', 'test', 'production']
 const schema = joi.object().keys({
   port: joi.number().default(3000),
   env: joi.string().valid(...envs).default(envs[0]),
-  appName: joi.string()
+  serviceName: joi.string(),
+  staticCacheTimeoutMillis: joi.number().default(15 * 60 * 1000),
+  googleTagManagerKey: joi.string().default('')
 })
 
 // Build config
 const config = {
   port: process.env.PORT,
   env: process.env.NODE_ENV,
-  appName: 'Hapi Template'
+  serviceName: 'Manage my cookies',
+  staticCacheTimeoutMillis: process.env.STATIC_CACHE_TIMEOUT_IN_MILLIS,
+  googleTagManagerKey: process.env.GOOGLE_TAG_MANAGER_KEY
 }
 
 // Validate config
