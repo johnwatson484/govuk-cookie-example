@@ -5,30 +5,67 @@
   <p>We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
 {% endset %}
 
+{% set acceptHtml %}
+  <p>You’ve accepted analytics cookies. You can <a href="/cookies">change your cookie settings</a> at any time.</p>
+{% endset %}
+
+{% set rejectHtml %}
+  <p>You’ve rejected analytics cookies. You can <a href="/cookies">change your cookie settings</a> at any time.</p>
+{% endset %}
+
 {{ govukCookieBanner({
   ariaLabel: "Cookies on Manage my cookies",
+  classes: "js-cookies-banner",
   messages: [
     {
       headingText: "Cookies on Manage my cookies",
       html: html,
+      classes: "js-question-banner",
       actions: [
         {
           text: "Accept analytics cookies",
           type: "button",
           name: "cookies",
-          value: "accept"
+          value: "accept",
+          classes: "js-cookies-button-accept"
         },
         {
           text: "Reject analytics cookies",
           type: "button",
           name: "cookies",
-          value: "reject"
+          value: "reject",
+          classes: "js-cookies-button-reject"
         },
         {
           text: "View cookies",
           href: "/cookies"
         }
       ]
+    },{
+      html: acceptHtml,
+      role: "alert",
+      hidden: true,
+      classes: "js-cookies-accepted",
+      actions: [
+        {
+          text: "Hide this message",
+          classes: "js-hide"
+        }
+      ]
+    },
+    {
+      html: rejectHtml,
+      role: "alert",
+      hidden: true,
+      classes: "js-cookies-rejected",
+      actions: [
+        {
+          text: "Hide this message",
+          classes: "js-hide"
+        }
+      ]
     }
   ]
 }) }}
+
+<script src="static/scripts/cookies.js"></script>
