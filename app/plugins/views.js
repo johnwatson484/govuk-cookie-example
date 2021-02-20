@@ -21,7 +21,7 @@ module.exports = {
             'node_modules/govuk-frontend/'
           ], {
             autoescape: true,
-            watch: false
+            watch: config.isDev
           })
 
           return next()

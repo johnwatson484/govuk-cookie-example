@@ -1,7 +1,7 @@
 {% extends "govuk/template.njk" %}
 
 {% block head %}
-{% include "./tagManager/headContent.njk" %}
+  {% include "./tag-manager/head-content.njk" %}
   <!--[if !IE 8]><!-->
     <link href="{{ assetPath }}/stylesheets/application.css" rel="stylesheet" />
   <!--<![endif]-->
@@ -18,7 +18,7 @@
   <![endif]-->
 {% endblock %}
 
-{% block header %}
+{% block header %}  
   {{ govukHeader({
     homepageUrl: "/",
     containerClasses: "govuk-width-container",
@@ -28,7 +28,8 @@
 {% endblock %}
 
 {% block bodyStart %}
-{% include "./tagManager/bodyContent.njk" %}
+{% include "./cookies/cookie-banner.njk" %}
+{% include "./tag-manager/body-content.njk" %}
 {% endblock %}
 
 {% block pageTitle %}

@@ -1,6 +1,7 @@
 const routes = [].concat(
   require('../routes/home'),
-  require('../routes/static')
+  require('../routes/static'),
+  require('../routes/cookies')
 )
 
 module.exports = {
