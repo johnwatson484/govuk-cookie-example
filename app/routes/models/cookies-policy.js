@@ -1,6 +1,4 @@
 function ViewModel (cookiesPolicy = {}, updated = false) {
-  console.log(cookiesPolicy)
-
   this.analytics = {
     idPrefix: 'analytics',
     name: 'analytics',
