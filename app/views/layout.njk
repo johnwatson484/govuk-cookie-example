@@ -40,6 +40,19 @@
   <h1 class="govuk-heading-xl">Default page template</h1>
 {% endblock %}
 
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "/cookies",
+          text: "Cookies"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}
+
 {% block bodyEnd %}
   {# Run JavaScript at end of the <body>, to avoid blocking the initial render. #}
   <script src="/govuk-frontend/govuk/all.js"></script>
