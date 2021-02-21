@@ -7,7 +7,7 @@ const schema = joi.object().keys({
   env: joi.string().valid(...envs).default(envs[0]),
   serviceName: joi.string().default('Manage my cookies'),
   staticCacheTimeoutMillis: joi.number().default(15 * 60 * 1000),
-  googleTagManagerKey: joi.string().default(''),
+  googleTagManagerKey: joi.string().default('GTM-PDMBJHK'),
   cookieOptions: joi.object({
     ttl: joi.number().default(1000 * 60 * 60 * 24 * 365),
     encoding: joi.string().valid('base64json').default('base64json'),
