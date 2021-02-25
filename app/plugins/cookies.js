@@ -1,4 +1,5 @@
 const config = require('../config').cookieOptions
+const { getCurrentPolicy } = require('../cookies')
 
 module.exports = {
   plugin: {
@@ -16,18 +17,4 @@ module.exports = {
       })
     }
   }
-}
-
-function getCurrentPolicy (request, h) {
-  let cookiesPolicy = request.state.cookies_policy
-  if (!cookiesPolicy) {
-    cookiesPolicy = createDefaultPolicy(h)
-  }
-  return cookiesPolicy
-}
-
-function createDefaultPolicy (h) {
-  const cookiesPolicy = { essential: true, confirmed: false, functional: false, analytics: false }
-  h.state('cookies_policy', cookiesPolicy, config)
-  return cookiesPolicy
 }
