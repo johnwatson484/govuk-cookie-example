@@ -1,7 +1,7 @@
 {% extends "govuk/template.njk" %}
 
 {% block head %}
-  {% if cookiesPolicy.analytics %}
+  {% if cookiesPolicy and cookiesPolicy.analytics %}
     {% include "./tag-manager/head-content.njk" %}
   {% endif %}
   <!--[if !IE 8]><!-->
@@ -30,11 +30,11 @@
 {% endblock %}
 
 {% block bodyStart %}
-  {% if not cookiesPolicy.confirmed %}
+  {% if cookiesPolicy and not cookiesPolicy.confirmed %}
     {% include "./cookies/cookie-banner.njk" %}
   {% endif %}
 
-  {% if cookiesPolicy.analytics %}
+  {% if cookiesPolicy and cookiesPolicy.analytics %}
     {% include "./tag-manager/body-content.njk" %}
   {% endif %}
 {% endblock %}
