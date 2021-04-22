@@ -10,6 +10,7 @@ const schema = joi.object().keys({
   googleTagManagerKey: joi.string().default('GTM-PDMBJHK'),
   cookieOptions: joi.object({
     ttl: joi.number().default(1000 * 60 * 60 * 24 * 365),
+    isSameSite: joi.string().valid('Lax').default('Lax'),
     encoding: joi.string().valid('base64json').default('base64json'),
     isSecure: joi.bool().default(true),
     isHttpOnly: joi.bool().default(true),
@@ -27,6 +28,7 @@ const config = {
   googleTagManagerKey: process.env.GOOGLE_TAG_MANAGER_KEY,
   cookieOptions: {
     ttl: process.env.COOKIE_TTL_IN_MILLIS,
+    isSameSite: 'Lax',
     encoding: 'base64json',
     isSecure: process.env.NODE_ENV === 'production',
     isHttpOnly: true,
